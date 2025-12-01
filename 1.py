@@ -1,3 +1,5 @@
+# PART 1
+
 input_array = []
 
 with open('input1.txt', 'r') as r:
@@ -24,5 +26,20 @@ for rotation in input_array:
     
 print(res)
 
+# PART 2
 
+dial = 50
+res = 0
+for rotation in input_array:
+    dir = rotation[0]
+    amt = int(rotation[1:])
+    for _ in range(amt):
+        if dir == 'L':
+            dial = (dial - 1) % 100
+        else:
+            dial = (dial + 1) % 100
+        if dial == 0:
+            res += 1
+
+print(res)
 
